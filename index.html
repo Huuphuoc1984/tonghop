@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển thị ảnh bằng nút bấm</title>
+    <style>
+        .button-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .image-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="button-container">
+    <button onclick="showImage('Trang1.png')">Trang 1</button>
+    <button onclick="showImage('Trang2.png')">Trang 2</button>
+    <button onclick="showImage('Trang3.png')">Trang 3</button>
+</div>
+
+<div class="image-container">
+    <img id="displayedImage" src="Trang1.png" alt="Ảnh hiển thị tại đây">
+</div>
+
+<script>
+    function showImage(imageSrc) {
+        const img = document.getElementById('displayedImage');
+        img.src = imageSrc;
+    }
+</script>
+
+</body>
+</html>
