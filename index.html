@@ -6,7 +6,7 @@
     <title>Hiển thị ảnh bằng nút bấm</title>
     <style>
         .button-container {
-            margin-bottom: 20px;
+            margin-top: 20px;
             text-align: center;
         }
         button {
@@ -18,8 +18,8 @@
         img {
             max-width: 100%;
             height: auto;
-            display: block;
             margin: 0 auto;
+            display: block;
         }
         .image-container {
             text-align: center;
@@ -28,14 +28,14 @@
 </head>
 <body>
 
+<div class="image-container">
+    <img id="displayedImage" src="Trang1.png" alt="Ảnh hiển thị tại đây">
+</div>
+
 <div class="button-container">
     <button onclick="showImage('Trang1.png')">Trang 1</button>
     <button onclick="showImage('Trang2.png')">Trang 2</button>
     <button onclick="showImage('Trang3.png')">Trang 3</button>
-</div>
-
-<div class="image-container">
-    <img id="displayedImage" src="Trang1.png" alt="Ảnh hiển thị tại đây">
 </div>
 
 <script>
