@@ -6,42 +6,91 @@
     <title>Hiển thị ảnh bằng nút bấm</title>
     <style>
         body {
-            padding-top: 100px;
+            padding-top: 60px;
+            padding-bottom: 100px;
             text-align: center;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
         }
+
+        .spacer {
+            height: 60px;
+            width: 100%;
+        }
+
+        h1 {
+            margin: 20px 0;
+            color: #333;
+        }
+
         .button-container {
-            margin-top: 20px;
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(249,249,249,0.9);
+            padding: 10px;
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
-            margin-right: 5px;
+            margin: 5px;
             cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button.active {
+            box-shadow: 0 0 15px #ffd700;
+            background-color: #ff9800;
+        }
+
         img {
-            max-width: 100%;
+            max-width: 80%;
             height: auto;
             display: block;
-            margin: 0 auto;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            transform: rotate(90deg);
         }
     </style>
 </head>
 <body>
+
+<div class="spacer"></div>
+
+<h1 id="imageTitle">Trang 1</h1>
 
 <div class="image-container">
     <img id="displayedImage" src="Trang1.png" alt="Ảnh hiển thị tại đây">
 </div>
 
 <div class="button-container">
-    <button onclick="showImage('Trang1.png')">Trang 1</button>
-    <button onclick="showImage('Trang2.png')">Trang 2</button>
-    <button onclick="showImage('Trang3.png')">Trang 3</button>
+    <button class="active" onclick="showImage(this,'Trang1.png','Trang 1')">Trang 1</button>
+    <button onclick="showImage(this,'Trang2.png','Trang 2')">Trang 2</button>
+    <button onclick="showImage(this,'Trang3.png','Trang 3')">Trang 3</button>
 </div>
 
 <script>
-    function showImage(imageSrc) {
+    function showImage(btn, imageSrc, title) {
         const img = document.getElementById('displayedImage');
         img.src = imageSrc;
+        document.getElementById('imageTitle').textContent = title;
+
+        let buttons = document.querySelectorAll('.button-container button');
+        buttons.forEach(button => button.classList.remove('active'));
+        btn.classList.add('active');
     }
 </script>
 
